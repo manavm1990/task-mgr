@@ -11,15 +11,15 @@ export class HeaderComponent implements OnInit {
 
   title: String = '';
 
+  ngOnInit(): void {
+    this.getTitle();
+  }
+
   getTitle() {
     this.title = this.titleService.getTitle();
   }
 
   toggleTaskAdder() {
     console.log('👋🏾');
-  }
-
-  ngOnInit(): void {
-    this.getTitle();
   }
 }
