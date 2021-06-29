@@ -17,7 +17,8 @@ export class TasksComponent implements OnInit {
   }
 
   initTasks(): void {
-    // TODO: Use Observables for async
-    this.tasks = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks;
+    });
   }
 }
