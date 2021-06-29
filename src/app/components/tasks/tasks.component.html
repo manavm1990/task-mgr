@@ -1,3 +1,10 @@
-<ul>
-  <li *ngFor="let task of tasks">{{ task.text }} - {{ task.day }}</li>
-</ul>
+<div *ngIf="tasks.length; then taskList; else noTasks"></div>
+<ng-template #taskList>
+  <ul>
+    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+  </ul>
+</ng-template>
+
+<ng-template #noTasks>
+  <p #noTasks>No tasks!</p>
+</ng-template>
