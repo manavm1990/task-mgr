@@ -10,11 +10,16 @@ import Task from 'src/app/Task';
 export class TaskComponent {
   @Input() task!: Task;
   @Output() deletedATask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() toggledATask: EventEmitter<Task> = new EventEmitter<Task>();
 
   faTimes = faTimes;
 
   onDelete(task: Task) {
     // Emit this event to parent
     this.deletedATask.emit(task);
+  }
+
+  onToggle(task: Task) {
+    this.toggledATask.emit(task);
   }
 }

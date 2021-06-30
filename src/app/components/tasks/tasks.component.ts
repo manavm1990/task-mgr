@@ -27,4 +27,9 @@ export class TasksComponent implements OnInit {
       this.tasks = this.tasks.filter((task) => task.id !== task2Delete.id);
     });
   }
+
+  toggleTaskReminder(task2Toggle: Task): void {
+    // Mutation to task is already taken care of in taskService.toggleTaskReminder
+    this.taskService.toggleTaskReminder(task2Toggle).subscribe();
+  }
 }
