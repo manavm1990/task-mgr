@@ -9,7 +9,7 @@ export class ButtonComponent {
   // ⚠️ Either give default text or mark as optional
   @Input() color?: string;
   @Input() text: string = 'Click';
-  @Output() clickedBtn = new EventEmitter<boolean>();
+  @Output() clickedBtn: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   onClick() {
     this.clickedBtn.emit();
