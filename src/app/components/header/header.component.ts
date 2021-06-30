@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private titleService: Title) {}
+  constructor(private titleService: Title, private taskService: TaskService) {}
 
   title: String = '';
 
