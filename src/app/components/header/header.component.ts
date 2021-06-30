@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
     this.title = this.titleService.getTitle();
   }
 
-  addedTask() {
-    console.log('👋🏾');
+  addTask() {
+    // TODO: Use task service to addTask
+    console.log('➕');
   }
 }
