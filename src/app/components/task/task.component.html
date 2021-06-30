@@ -1,7 +1,11 @@
 <li class="task">
   <h2>
     {{ task.text }}
-    <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+    <fa-icon
+      [ngStyle]="{ color: 'red' }"
+      [icon]="faTimes"
+      (click)="onDelete(task)"
+    ></fa-icon>
   </h2>
 
   <!-- TODO: Use `time` tags with `datetime` attributes -->

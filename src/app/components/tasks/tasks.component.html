@@ -1,7 +1,11 @@
 <div *ngIf="tasks.length; then taskList; else noTasks"></div>
 <ng-template #taskList>
   <ul>
-    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    <app-task
+      *ngFor="let task of tasks"
+      [task]="task"
+      (deletedATask)="deleteTask(task)"
+    ></app-task>
   </ul>
 </ng-template>
 
