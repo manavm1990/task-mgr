@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.title = this.titleService.getTitle();
   }
 
-  toggleTaskAdder() {
+  addedTask() {
     console.log('👋🏾');
   }
 }
