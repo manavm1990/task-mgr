@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import Task from 'src/app/Task';
 
 @Component({
@@ -12,7 +12,7 @@ export class TaskComponent {
   @Output() deletedATask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() toggledATask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  faTimes = faTimes;
+  faTimes: IconDefinition = faTimes;
 
   onDelete(task: Task) {
     // Emit this event to parent
