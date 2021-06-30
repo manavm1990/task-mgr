@@ -6,8 +6,8 @@
     <app-task
       *ngFor="let task of tasks"
       [task]="task"
-      (deletedATask)="deleteTask(task)"
-      (toggledATask)="toggleTaskReminder(task)"
+      (deletedATask)="deleteTask($event)"
+      (toggledATask)="toggleTaskReminder($event)"
     ></app-task>
   </ul>
 </ng-template>
