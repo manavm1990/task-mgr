@@ -10,9 +10,9 @@ import Task from 'src/app/Task';
   styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[] = [];
   showAddTasks: boolean = false;
-  subscription!: Subscription;
+  subscription: Subscription;
+  tasks: Task[] = [];
 
   constructor(private taskService: TaskService, private uiService: UiService) {
     this.subscription = this.uiService.onToggle().subscribe((val) => {
@@ -22,12 +22,6 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.initTasks();
-  }
-
-  initTasks(): void {
-    this.taskService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks;
-    });
   }
 
   addTask(task: Task): void {
@@ -45,5 +39,11 @@ export class TasksComponent implements OnInit {
   toggleTaskReminder(task2Toggle: Task): void {
     // Mutation to task is already taken care of in taskService.toggleTaskReminder
     this.taskService.toggleTaskReminder(task2Toggle).subscribe();
+  }
+
+  private initTasks(): void {
+    this.taskService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks;
+    });
   }
 }

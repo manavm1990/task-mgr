@@ -8,8 +8,8 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  title: String = '';
   isAddingTask: boolean = false;
+  title: String = '';
 
   constructor(private titleService: Title, private uiService: UiService) {}
 
@@ -17,14 +17,14 @@ export class HeaderComponent implements OnInit {
     this.getTitle();
   }
 
-  getTitle() {
-    this.title = this.titleService.getTitle();
-  }
-
-  toggleAddTask() {
+  toggleAddTask(): void {
     // Subscription is triggered when the user clicks the button
     this.uiService.toggleIsAddingTask().subscribe((value) => {
       this.isAddingTask = value;
     });
+  }
+
+  private getTitle(): void {
+    this.title = this.titleService.getTitle();
   }
 }

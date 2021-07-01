@@ -10,9 +10,10 @@ const initModel: Task = { text: '', day: '', reminder: false };
 })
 export class AddTaskComponent {
   @Output() addedATask: EventEmitter<Task> = new EventEmitter<Task>();
+
   model: Task = initModel;
 
-  onSubmit() {
+  onSubmit(): void {
     this.addedATask.emit(this.model);
     this.model = initModel;
   }

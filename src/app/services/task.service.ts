@@ -15,16 +15,16 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.URL);
-  }
-
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.URL, task, httpOptions);
   }
 
   deleteTask(task: Task): Observable<Task> {
     return this.http.delete<Task>(`${this.URL}/${task.id}`);
+  }
+
+  getTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.URL);
   }
 
   toggleTaskReminder(task: Task): Observable<Task> {

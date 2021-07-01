@@ -14,6 +14,10 @@ export class UiService {
     });
   }
 
+  onToggle(): Observable<boolean> {
+    return this.subject.asObservable();
+  }
+
   toggleIsAddingTask(): Observable<boolean> {
     return new Observable((subscriber) => {
       this.isAddingTask = !this.isAddingTask;
@@ -24,9 +28,5 @@ export class UiService {
       // Notify all other components (that don't trigger this method)
       this.subject.next(this.isAddingTask);
     });
-  }
-
-  onToggle(): Observable<boolean> {
-    return this.subject.asObservable();
   }
 }

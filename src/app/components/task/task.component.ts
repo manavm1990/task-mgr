@@ -8,18 +8,19 @@ import Task from 'src/app/Task';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent {
-  @Input() task!: Task;
   @Output() deletedATask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() toggledATask: EventEmitter<Task> = new EventEmitter<Task>();
 
+  @Input() task!: Task;
+
   faTimes: IconDefinition = faTimes;
 
-  onDelete(task: Task) {
+  onDelete(task: Task): void {
     // Emit this event to parent
     this.deletedATask.emit(task);
   }
 
-  onToggle(task: Task) {
+  onToggle(task: Task): void {
     this.toggledATask.emit(task);
   }
 }
