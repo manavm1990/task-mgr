@@ -25,7 +25,7 @@ export class UiService {
       // Any component that triggers this method will be notified
       subscriber.next(this.isAddingTask);
 
-      // Notify all other components (that don't trigger this method)
+      // Notify all other components (that don't trigger this method) that the
       this.subject.next(this.isAddingTask);
     });
   }

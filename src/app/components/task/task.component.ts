@@ -11,6 +11,7 @@ export class TaskComponent {
   @Output() deletedATask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() toggledATask: EventEmitter<Task> = new EventEmitter<Task>();
 
+  // Guaranteed by parent `*ngIf`
   @Input() task!: Task;
 
   faTimes: IconDefinition = faTimes;
