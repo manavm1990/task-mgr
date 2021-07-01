@@ -1,4 +1,7 @@
-<app-add-task (addedATask)="addTask($event)"></app-add-task>
+<app-add-task
+  (addedATask)="addTask($event)"
+  *ngIf="showAddTasks"
+></app-add-task>
 
 <div *ngIf="tasks.length; then taskList; else noTasks"></div>
 <ng-template #taskList>

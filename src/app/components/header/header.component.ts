@@ -21,7 +21,8 @@ export class HeaderComponent implements OnInit {
     this.title = this.titleService.getTitle();
   }
 
-  addTask() {
+  toggleAddTask() {
+    // Subscription is triggered when the user clicks the button
     this.uiService.toggleIsAddingTask().subscribe((value) => {
       this.isAddingTask = value;
     });
