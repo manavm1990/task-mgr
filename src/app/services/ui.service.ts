@@ -6,7 +6,6 @@ import { Observable, Subject } from 'rxjs';
 })
 export class UiService {
   private isAddingTask: boolean = false;
-  private subject = new Subject<boolean>();
 
   toggleIsAddingTask(): Observable<boolean> {
     return new Observable((subscriber) => {
