@@ -2,8 +2,8 @@
   <h1>{{ title }}</h1>
   <!-- Capture the Output Event Emitter from 🧒🏾 -->
   <app-button
-    color="green"
-    text="➕ Add Task"
+    color="{{ isAddingTask ? 'red' : 'green' }}"
+    text="{{ isAddingTask ? '🛑 Cancel' : '➕ Add Task' }}"
     (clickedBtn)="addTask()"
   ></app-button>
 </header>

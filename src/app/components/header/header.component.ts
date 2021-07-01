@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { TaskService } from 'src/app/services/task.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,10 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private titleService: Title, private taskService: TaskService) {}
-
   title: String = '';
+  isAddingTask: boolean = false;
+
+  constructor(private titleService: Title, private uiService: UiService) {}
 
   ngOnInit(): void {
     this.getTitle();
@@ -21,7 +22,8 @@ export class HeaderComponent implements OnInit {
   }
 
   addTask() {
-    // TODO: Use task service to addTask
-    console.log('➕');
+    this.uiService.toggleIsAddingTask().subscribe((value) => {
+      this.isAddingTask = value;
+    });
   }
 }
