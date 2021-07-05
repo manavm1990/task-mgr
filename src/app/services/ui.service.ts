@@ -14,6 +14,7 @@ export class UiService {
     });
   }
 
+  // Allow subscriptions
   toggle(): Observable<boolean> {
     return this.subject.asObservable();
   }
@@ -25,7 +26,7 @@ export class UiService {
       // Any component that triggers this method will be notified
       subscriber.next(this.isAddingTask);
 
-      // Notify all other components (that don't trigger this method) that the
+      // Notify all other subscribed components (that don't trigger this method)
       this.subject.next(this.isAddingTask);
     });
   }

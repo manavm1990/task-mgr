@@ -18,10 +18,13 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleAddTask(): void {
-    // Subscription is triggered when the user clicks the button
-    this.uiService.toggleIsAddingTask().subscribe((value) => {
-      this.isAddingTask = value;
-    });
+    // 'uiService.toggle' is triggered for subscribers on `btnClick()` from inside `uiService.toggleIsAddingTask()`
+    this.uiService.toggleIsAddingTask().subscribe(
+      // Get the new value of `isAddingTask` from `uiService`
+      (value) => {
+        this.isAddingTask = value;
+      }
+    );
   }
 
   private getTitle(): void {
