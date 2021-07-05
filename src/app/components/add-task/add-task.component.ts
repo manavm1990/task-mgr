@@ -9,12 +9,12 @@ const initModel: Task = { text: '', day: '', reminder: false };
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent {
-  @Output() addedATask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() taskAdd: EventEmitter<Task> = new EventEmitter<Task>();
 
   model: Task = initModel;
 
   onSubmit(): void {
-    this.addedATask.emit(this.model);
+    this.taskAdd.emit(this.model);
     this.model = initModel;
   }
 }

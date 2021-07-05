@@ -8,8 +8,9 @@ import Task from 'src/app/Task';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent {
-  @Output() deletedATask: EventEmitter<Task> = new EventEmitter<Task>();
-  @Output() toggledATask: EventEmitter<Task> = new EventEmitter<Task>();
+  // Custom events don't start with 'on'
+  @Output() taskDelete: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() taskToggle: EventEmitter<Task> = new EventEmitter<Task>();
 
   // Guaranteed by parent `*ngIf`
   @Input() task!: Task;
@@ -18,10 +19,10 @@ export class TaskComponent {
 
   onDelete(task: Task): void {
     // Emit this event to parent
-    this.deletedATask.emit(task);
+    this.taskDelete.emit(task);
   }
 
   onToggle(task: Task): void {
-    this.toggledATask.emit(task);
+    this.taskToggle.emit(task);
   }
 }

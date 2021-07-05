@@ -1,7 +1,4 @@
-<app-add-task
-  (addedATask)="addTask($event)"
-  *ngIf="showAddTasks"
-></app-add-task>
+<app-add-task (taskAdd)="addTask($event)" *ngIf="showAddTasks"></app-add-task>
 
 <div *ngIf="tasks.length; then taskList; else noTasks"></div>
 <ng-template #taskList>
@@ -9,8 +6,8 @@
     <app-task
       *ngFor="let task of tasks"
       [task]="task"
-      (deletedATask)="deleteTask($event)"
-      (toggledATask)="toggleTaskReminder($event)"
+      (taskDelete)="deleteTask($event)"
+      (taskToggle)="toggleTaskReminder($event)"
     ></app-task>
   </ul>
 </ng-template>

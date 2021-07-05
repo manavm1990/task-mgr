@@ -4,6 +4,6 @@
   <app-button
     color="{{ isAddingTask ? 'red' : 'green' }}"
     text="{{ isAddingTask ? '🛑 Cancel' : '➕ Add Task' }}"
-    (clickedBtn)="toggleAddTask()"
+    (btnClick)="toggleAddTask()"
   ></app-button>
 </header>
