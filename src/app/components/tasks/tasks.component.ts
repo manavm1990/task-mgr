@@ -15,7 +15,7 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
 
   constructor(private taskService: TaskService, private uiService: UiService) {
-    this.subscription = this.uiService.onToggle().subscribe((val) => {
+    this.subscription = this.uiService.toggle().subscribe((val) => {
       this.showAddTasks = val;
     });
   }

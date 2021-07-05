@@ -14,7 +14,7 @@ export class UiService {
     });
   }
 
-  onToggle(): Observable<boolean> {
+  toggle(): Observable<boolean> {
     return this.subject.asObservable();
   }
 
